@@ -4,7 +4,9 @@ from tkinter import *
 import random
 import time
 
+# String
 level = int(input("Qual nível você gostaria de jogar? 1/2/3/4/5 \n"))
+# Float (loosely typed)
 length = 500/level
 
 
@@ -13,15 +15,17 @@ root.title("Ping Pong")
 root.resizable(0,0)
 root.wm_attributes("-topmost", -1)
 
+# Game window
 canvas = Canvas(root, width=800, height=600, bd=0,highlightthickness=0)
 canvas.pack()
 
 root.update()
 
-# Variável
+# Variables (int, boolean)
 count = 0
 lost = False
 
+# Class
 class Bola:
     def __init__(self, canvas, Barra, color):
         self.canvas = canvas
@@ -29,6 +33,7 @@ class Bola:
         self.id = canvas.create_oval(0, 0, 15, 15, fill=color)
         self.canvas.move(self.id, 245, 200)
 
+        # List
         starts_x = [-3, -2, -1, 1, 2, 3]
         random.shuffle(starts_x)
 
@@ -131,7 +136,7 @@ def score():
 def game_over():
     canvas.itemconfig(game, text="Game over!")
 
-
+# More variables
 Barra = Barra(canvas, "orange")
 Bola = Bola(canvas, Barra, "purple")
 
